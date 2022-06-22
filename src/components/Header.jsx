@@ -1,11 +1,16 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import BookContext from '../context/BookContext';
 
 function Header() {
   const [searchValue, setSearchValue] = useState('');
-  const [firstYearValue, setFirstYearValue] = useState(undefined);
-  const [lastYearValue, setLastYearValue] = useState(undefined);
+  const [firstYearValue, setFirstYearValue] = useState(0);
+  const [lastYearValue, setLastYearValue] = useState(0);
+  const [resultValue, setResultValue] = useState(0);
   const { books, setFilteredBooks } = useContext(BookContext);
+
+  useEffect(() => {
+    setResultValue(books.length);
+  }, []);
 
   function handleChange({ target }) {
     const { id, value } = target;
@@ -46,6 +51,8 @@ function Header() {
   async function searchBooks() {
     const filteredBooks = filterBooks();
 
+    setResultValue(filteredBooks.length);
+
     await setFilteredBooks(filteredBooks);
   }
 
@@ -56,6 +63,7 @@ function Header() {
       <button onClick={searchBooks} type="button">Buscar</button>
       <input id="firstYear" onChange={handleChange} value={firstYearValue} min={0} type="number" />
       <input id="lastYear" onChange={handleChange} value={lastYearValue} min={0} type="number" />
+      <span>{`${resultValue} resultados encontrados`}</span>
     </div>
   );
 }
