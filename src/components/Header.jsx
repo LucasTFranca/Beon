@@ -6,11 +6,11 @@ function Header() {
   const [firstYearValue, setFirstYearValue] = useState(0);
   const [lastYearValue, setLastYearValue] = useState(0);
   const [resultValue, setResultValue] = useState(0);
-  const { books, setFilteredBooks } = useContext(BookContext);
+  const { books, booksLoader } = useContext(BookContext);
 
   useEffect(() => {
     setResultValue(books.length);
-  }, []);
+  }, [books]);
 
   function handleChange({ target }) {
     const { id, value } = target;
@@ -24,36 +24,11 @@ function Header() {
     inputDictionary[id]();
   }
 
-  function filterBooks() {
-    const searchValueInLower = searchValue.toLowerCase();
+  function searchBooks() {
+    const years = { firstYear: firstYearValue, lastYear: lastYearValue };
 
-    const foundBooks = books.filter(({ author, language, title }) => {
-      const authorLower = author.toLowerCase();
-      const languageLower = language.toLowerCase();
-      const titleLower = title.toLowerCase();
-
-      return (
-        authorLower.includes(searchValueInLower)
-        || languageLower.includes(searchValueInLower)
-        || titleLower.includes(searchValueInLower)
-      );
-    });
-
-    if (!firstYearValue || !lastYearValue) return foundBooks;
-
-    const filteredBooks = foundBooks.filter(({ year }) => (
-      year >= firstYearValue && year <= lastYearValue
-    ));
-
-    return filteredBooks;
-  }
-
-  async function searchBooks() {
-    const filteredBooks = filterBooks();
-
-    setResultValue(filteredBooks.length);
-
-    await setFilteredBooks(filteredBooks);
+    if (searchValue && (!firstYearValue || !lastYearValue)) booksLoader('search', searchValue);
+    else if (searchValue && (firstYearValue || lastYearValue)) booksLoader('searchAndYear', searchValue, years);
   }
 
   return (
