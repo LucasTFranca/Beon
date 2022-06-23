@@ -27,7 +27,7 @@ Primeiro clone o repositorio utilizando o comando:
 
 ```bash
 git clone git@github.com:LucasTFranca/Beon.git
-cd beon
+cd Beon
 ```
 
 Agora instale as dependencias do projeto:
