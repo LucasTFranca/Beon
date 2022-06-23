@@ -9,7 +9,7 @@ no banco de dados do Json Sever.
 ## Requisitos
 
 - Node js
-- Npm
+- Yarn
 - Jsonserver
 
 ## Tecnologias Utilizadas
