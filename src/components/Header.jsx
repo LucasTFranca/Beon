@@ -33,7 +33,7 @@ function Header() {
 
   return (
     <div>
-      <img src="" alt="Beon" />
+      <span>Beon</span>
       <input id="search" onChange={handleChange} value={searchValue} type="text" />
       <button onClick={searchBooks} type="button">Buscar</button>
       <input id="firstYear" onChange={handleChange} value={firstYearValue} min={0} type="number" />

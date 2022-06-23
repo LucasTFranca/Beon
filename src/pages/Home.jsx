@@ -26,10 +26,9 @@ function Home() {
         if (!(pageOneLess === 0)) setPage(pageOneLess);
       },
       next: () => setPage(pageOneMore),
-      default: () => setPage(Number(target.value)),
     };
 
-    buttonDictionary[target.className]();
+    buttonDictionary[target.id]();
   }
 
   return (
@@ -39,11 +38,9 @@ function Home() {
         books.map((book) => <BookCard key={`${book.title}-${book.author}`} book={book} />)
       }
       <div>
-        <button className="prev" onClick={handleClick} type="button">{'<'}</button>
-        <button value={page} className="default" onClick={handleClick} type="button">{ page }</button>
-        <button value={page + 1} className="default" onClick={handleClick} type="button">{ page + 1 }</button>
-        <button value={page + 2} className="default" onClick={handleClick} type="button">{ page + 2 }</button>
-        <button className="next" onClick={handleClick} type="button">{'>'}</button>
+        <button id="prev" onClick={handleClick} type="button">{'<'}</button>
+        <button value={page} type="button">{ page }</button>
+        <button id="next" onClick={handleClick} type="button">{'>'}</button>
       </div>
     </div>
   );

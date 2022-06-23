@@ -22,7 +22,10 @@ function BookProvider({ children }) {
     const itemIndex = page * 10;
     let data = [];
 
-    if (page === 0) data = books.slice(0, itemIndex);
+    const comparate = books.length - itemIndex;
+
+    if ((comparate === 0 || comparate <= -10) && page > 1) setPage(page - 1);
+    else if (page === 0) data = books.slice(0, itemIndex);
     else data = books.slice(itemIndex - 10, itemIndex);
 
     setBooksToShow(data);
