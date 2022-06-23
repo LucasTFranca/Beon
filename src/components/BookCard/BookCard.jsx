@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import './BookCard.css';
+
 function BookCard({ book }) {
   const {
     title,
@@ -10,13 +12,12 @@ function BookCard({ book }) {
   } = book;
 
   return (
-    <div>
-      <span>{title}</span>
-      <span>{author}</span>
-      <span>{language}</span>
-      <span>{year}</span>
-      <span>detalhes</span>
-    </div>
+    <>
+      <span className="card-item">{title}</span>
+      <span className="card-item">{author}</span>
+      <span className="card-item">{language}</span>
+      <span className="card-item">{year}</span>
+    </>
   );
 }
 
