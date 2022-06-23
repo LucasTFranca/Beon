@@ -29,6 +29,7 @@ function Header() {
 
     if (searchValue && (!firstYearValue || !lastYearValue)) booksLoader('search', searchValue);
     else if (searchValue && (firstYearValue || lastYearValue)) booksLoader('searchAndYear', searchValue, years);
+    else booksLoader('default');
   }
 
   return (

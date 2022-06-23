@@ -43,6 +43,11 @@ function BookProvider({ children }) {
 
         setBooks(data);
       },
+      default: async () => {
+        const data = await getBooks();
+
+        setBooks(data);
+      },
     };
 
     requestDictionary[searchType]();
