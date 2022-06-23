@@ -16,6 +16,7 @@ input::-webkit-inner-spin-button {
   display: flex;
   justify-content: space-between;
   padding: 2em;
+  padding-top: 1.5em;
 }
 
 .search-left-container {
@@ -56,8 +57,7 @@ input::-webkit-inner-spin-button {
   justify-content: space-between;
   padding-left: 2em;
   padding-right: 3em;
-  padding-top: 0.5em;
-  padding-bottom: 2em;
+  padding-bottom: 1.2em;
 }
 
 .year-left-container {
