@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  background: #D9D9D9;
+}
+
+.search-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 2em;
+}
+
+.search-left-container {
+  display: flex;
+  align-items: center;
+  height: 4vh;
+}
+
+.search-left-container span {
+  font-size: 40px;
+  font-family: 'Roboto';
+  color: #623789;
+}
+
+.search-right-container {
+  display: flex;
+  height: 4vh;
+}
+
+.search-right-container input {
+  width: 40em;
+  outline: 0px;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 1em;
+  margin-right: 1em;
+}
+
+.search-right-container button {
+  width: 6em;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.year-container {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 2em;
+  padding-right: 3em;
+  padding-top: 0.5em;
+  padding-bottom: 2em;
+}
+
+.year-left-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 30em;
+}
+
+.year-left-container input {
+  width: 5em;
+  height: 3vh;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 5px;
+  outline: 0px;
+}
+
+.year-right-container {
+  display: flex;
+  align-items: center;
+}
+
+.year-right-container span {
+  font-family: roboto;
+  font-weight: 400;
+}
+
+#result {
+  font-size: 18px;
+  margin-right: 0.3em;
+}
